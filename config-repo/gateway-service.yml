@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: customer-service
+          uri: lb://customer-service
+          predicates:
+            - Path=/api/clients/**
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/api/comptes/**
+        - id: composite-service
+          uri: lb://composite-service
+          predicates:
+            - Path=/api/composite/**
+        - id: auth-service
+          uri: lb://customer-service
+          predicates:
+            - Path=/api/v1/auth/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-service:8761/eureka/

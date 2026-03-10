@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.miage.tpae"},{"l":"org.miage.tpae.dao"},{"l":"org.miage.tpae.exposition"},{"l":"org.miage.tpae.metier"}];updateSearchResults();

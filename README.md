@@ -6,6 +6,24 @@ Travaux Pratiques sur les Applications d'Entreprises avec Spring
 Sujets des TPs sous moodle :
 https://moodle-miage-toulouse.westeurope.cloudapp.azure.com/course/view.php?id=22
 
+---
+
+## Architecture des Microservices
+
+Ce projet est structuré en plusieurs microservices collaborant pour fournir les fonctionnalités bancaires :
+
+### Services Métier
+*   **[Customer Service](./customer-service)** : Gère les informations des clients (id, nom, prénom). Utilise une base de données **MySQL**.
+*   **[Account Service](./account-service)** : Gère les comptes bancaires (solde, statut) et l'historique des opérations. Utilise une base de données NoSQL **MongoDB**.
+*   **[Composite Service](./composite-service)** : Service d'orchestration qui agrège les données du client et de ses comptes pour fournir une vue unifiée (Pattern "BFF" - Backend For Frontend).
+
+### Services d'Infrastructure
+*   **[Gateway Service](./gateway-service)** : Point d'entrée unique de l'application (Port **8080**). Il route les requêtes vers les bons services métier.
+*   **[Discovery Service](./discovery-service)** : Serveur **Eureka** qui permet aux services de se découvrir automatiquement sans connaître leurs adresses IP. (Port **8761**).
+*   **[Config Service](./config-service)** : Centralise la configuration de tous les services en utilisant le dossier `config-repo`. (Port **8888**).
+*   **[Monitoring Service](./monitoring-service)** : Permet de surveiller l'état de santé et les métriques des services. (Port **9090**).
+
+---
 
 ### Configuration
 
