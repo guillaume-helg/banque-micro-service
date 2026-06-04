@@ -18,6 +18,14 @@ spring:
           uri: lb://customer-service
           predicates:
             - Path=/api/v1/auth/**
+        - id: monitoring-service
+          uri: lb://monitoring-service
+          predicates:
+            - Path=/actuator/**
+        - id: main-service
+          uri: lb://main-service
+          predicates:
+            - Path=/api/**
 
 eureka:
   client:
